@@ -24,10 +24,9 @@ int main()
     //Adding data and setting next = NULL
     ptr->data = 20;
     ptr->next = NULL;
-
+    
     //Pointing Head to create node
     head=ptr;
     cout<<"data is :"<<head->data;
     return 0;
-
 }
