@@ -40,6 +40,26 @@ void insertAtEnd(int input){
     }
 }
 
+void insertAtMiddle(int input,int data)
+{
+    Node * ptr = new Node();
+    ptr->data = data;
+    ptr->next = NULL;
+
+     Node *temp1 = head;
+     Node *temp2 = head; 
+     while (temp1->data == input)
+        {
+            temp2 = temp1;
+            temp1 = temp1->next;
+            
+        }
+    temp2->next = ptr;
+    ptr->next = temp1;
+    
+    
+}
+
 //Function to display linked list(Traverse Linked List)
 void display(){
     
@@ -60,8 +80,12 @@ int main(){
     insertAtBegining(20);
     insertAtBegining(30);
 
+   // insertAtMiddle(30,500);
+    insertAtMiddle(20,500);
+
     insertAtEnd(80);
     insertAtEnd(90);
+    //insertAtMiddle(80,200);
 
 
     display();

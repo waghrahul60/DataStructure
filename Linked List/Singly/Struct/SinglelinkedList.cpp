@@ -14,14 +14,14 @@ void insertNode(int data)
 {   
     if (head == NULL)
     {
-        struct Node * New_node = (struct Node*)malloc(sizeof(struct Node));
+        struct Node * New_node = new Node();//(struct Node*)malloc(sizeof(struct Node));
         New_node->data = data;
         New_node->next = NULL;
         head= New_node;
     }
     else
     {
-        struct Node * New_node = (struct Node*)malloc(sizeof(struct Node));
+        struct Node * New_node = new Node();//(struct Node*)malloc(sizeof(struct Node));
         New_node->data = data;
         New_node->next = head;
         head= New_node;
