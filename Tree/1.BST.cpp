@@ -90,6 +90,7 @@ public:
 
 
 
+
     void print2D(TreeNode *r,int space)
     {
         if(r==NULL){
@@ -104,6 +105,17 @@ public:
         }
         cout<<r->value<<"\n";
         print2D(r->left,space);
+    }
+
+    void printPreOrder(TreeNode * r)
+    {
+        if( r == NULL)
+        {
+            return;
+        }
+        cout << r->value <<" ";
+       printPreOrder(r->left);
+       printPreOrder(r->right);
     }
 };
 
@@ -148,6 +160,7 @@ int main()
         case 4:
             cout << "print and Traverse" << endl;
             obj.print2D(obj.root,5);
+            obj.printPreOrder(obj.root);
             break;
         case 5:
             system("cls");
