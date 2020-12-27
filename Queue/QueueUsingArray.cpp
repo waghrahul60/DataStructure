@@ -16,7 +16,7 @@ class queue{
         }
     }
     int isFull(){
-        if (rear == 5 && front == 0)
+        if (rear == 5-1)
         {
             return 1;
         }else
@@ -32,12 +32,15 @@ class queue{
             cout<<"Queue is full \n";
         }else
         {
-            if (front == -1)
+            if (isEmpty())
             {
                 front = 0;
+                rear = 0;
             }
-            
-            rear++;
+            else
+            {
+                rear++;
+            }
             queue[rear] = input;
         }
     }

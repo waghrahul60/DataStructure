@@ -118,10 +118,6 @@ int main()
     insertNode(ptr,86);
     insertNode(ptr,89);
 
-
-
-
-
     Print2d(ptr,5);
 
     int result = 0;
