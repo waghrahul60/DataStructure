@@ -35,6 +35,35 @@ struct node *insertNode(struct node *root, int input)
     }
     return root;
 }
+
+struct node* searchNode(struct node *root,int input)
+{
+    struct node* temp;
+    if (root == NULL)
+    {
+        return root;
+    }else
+    {
+        temp = root;
+        while(temp != NULL)
+        {
+            if (temp->data == input)
+            {
+                return temp;
+            }
+            else if(temp->data > input)
+            {
+                temp =  temp->left;
+            }
+            else
+            {
+                temp = temp->right;
+            }
+        }
+    }
+    return temp;
+} 
+
 ///Print Tree In 2d View
 void Print2d(struct node *r, int space)
 {
@@ -65,5 +94,16 @@ int main()
 
     Print2d(ptr,5);
 
+    struct node *result = NULL;
+    result = searchNode(ptr,350);
+   
+    if(result == NULL)
+    {
+        cout<<"Not Found !!!!!!!!";
+    }
+    else
+    {
+        cout<<"Result Found : "<<result->data;
+    }
     return 0;
 }
