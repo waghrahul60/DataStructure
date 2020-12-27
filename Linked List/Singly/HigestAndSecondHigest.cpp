@@ -34,23 +34,6 @@ void insertAtEnd(int input){
     }
 }
 
-void findMiddleElement(){
-    Node *fast=head;
-    Node *slow=head;
-    if(head==NULL)
-    {
-        cout<<"Linked List is empty ";
-    }else
-    {
-        while(fast->next != NULL)
-        {
-            fast = fast->next->next;
-            slow = slow->next;
-        }
-        cout<<"Middle element is :"<<slow->data;
-    }
-}
-
 //Function to display linked list(Traverse Linked List)
 void display(){
     
@@ -94,14 +77,11 @@ void findHigest()
 }
 
 int main(){
-    insertAtEnd(50);
+    insertAtEnd(5);
     insertAtEnd(10);
-    insertAtEnd(20);
-    insertAtEnd(30);
-    insertAtEnd(40);
-
+    
     display();
-    findMiddleElement();
+
     findHigest();
 
     return 0;

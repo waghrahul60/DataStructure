@@ -8,7 +8,7 @@ struct node
     struct node *right;
     struct node *left;
 };
-
+//Create New Node
 struct node *createNode(int input)
 {
     struct node *temp = new node();
@@ -18,6 +18,7 @@ struct node *createNode(int input)
     return temp;
 }
 
+//Insert Node into Tree
 struct node *insertNode(struct node *root, int input)
 {
     if (root == NULL)
@@ -34,7 +35,7 @@ struct node *insertNode(struct node *root, int input)
     }
     return root;
 }
-
+//Inorder Traversal
 void inorder(struct node *root)
 {
     if (root != NULL)
@@ -44,7 +45,7 @@ void inorder(struct node *root)
         inorder(root->right);
     }
 }
-
+//PreeOrder Traversal
 void preorder(struct node *root)
 {
     if (root != NULL)
@@ -54,7 +55,7 @@ void preorder(struct node *root)
         inorder(root->right);
     }
 }
-
+//PostOrderTraversal
 void postorder(struct node *root)
 {
     if (root != NULL)
@@ -64,7 +65,7 @@ void postorder(struct node *root)
         cout << root->data << " ";
     }
 }
-
+///Print Tree In 2d View
 void Print2d(struct node *r, int space)
 {
     if (r == NULL)
