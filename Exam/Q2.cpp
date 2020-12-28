@@ -74,18 +74,49 @@ int CountTotalNumberNodes(struct node* root)
     {
         count = count + CountTotalNumberNodes(root->right);
     }
-
-    // int a = CountTotalNumberNodes(root->left);
-    // int b = CountTotalNumberNodes(root->right);
-
-    // count = count + (a+b);
     return count;
 }
 
-void deleteNode()
+struct node* deleteNode(struct node* root,int input)
 {
-    
+    if(root == NULL)
+    {
+        return root;
+    }
+    else if(input < root->data)
+    {
+        root->left = deleteNode(root->left,input);
+    }
+    else if(input > root->data)
+    {
+        root->right = deleteNode(root->right,input);
+    }else
+    {
+        if(root->left == NULL)
+        {
+            struct node *temp = root->right;
+            free(root);
+            return temp;
+        }
+        if(root->right == NULL)
+        {
+            struct node *temp = root->left;
+            free(root);
+            return temp;
+        }
+    /*
+        struct node *current = root->left;
+        while (current->left != NULL)
+        {
+            current = current->left;
+        }
 
+        struct node *temp = current;
+        root->data = temp->data;
+        root->right  = deleteNode(root->right,input); */
+    }
+    
+    return root;
 }
 
 int main()
@@ -113,5 +144,10 @@ int main()
     int secondMini = secondMinimum(ptr);
     cout<<"Second minimum no is : "<<secondMini<<endl;
 
+    struct node* a = deleteNode(ptr,13);
+
+    cout<<"After Deleting Node 13 Tree PriOrder : ";
+    preorder(a);
+    cout<<endl;
     return 0;
 }
