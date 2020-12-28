@@ -61,20 +61,31 @@ int secondMinimum(struct node *root)
 
 int CountTotalNumberNodes(struct node* root)
 {
-    int count = 0;
+    int count = 1;
     if(root == NULL)
     return 0;
 
-    if(root->left && root->right)
+    if(root->left != NULL)
     {
-        count++;
+        count = count + CountTotalNumberNodes(root->left);
+    }
+    
+    if(root->right != NULL)
+    {
+        count = count + CountTotalNumberNodes(root->right);
     }
 
-    int a = CountTotalNumberNodes(root->left);
-    int b = CountTotalNumberNodes(root->right);
+    // int a = CountTotalNumberNodes(root->left);
+    // int b = CountTotalNumberNodes(root->right);
 
-    count = count + (a+b);
+    // count = count + (a+b);
     return count;
+}
+
+void deleteNode()
+{
+    
+
 }
 
 int main()
@@ -91,18 +102,16 @@ int main()
     insertNode(ptr,13);
 
 
+    cout<<"Pre Order Traversal : ";
     preorder(ptr);
-
+    cout<<endl;
     
-     
     int c = CountTotalNumberNodes(ptr);
-    cout<<"Count : "<<c; 
+    cout<<"Total Number of Nodes : "<<c<<endl; 
 
 
     int secondMini = secondMinimum(ptr);
-    cout<<"Second minimum no is : "<<secondMini;
-
-
+    cout<<"Second minimum no is : "<<secondMini<<endl;
 
     return 0;
 }
