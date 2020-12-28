@@ -26,7 +26,7 @@ void insertionSort(int arr[])
 int main()
 {
     int myArray[10]={35,33,42,10,14,19,27,44,26,31};
-     cout<<"Unsorted Array is : ";
+    cout<<"Unsorted Array is : ";
     for(int i =0;i<10;i++)
     {
         cout<<myArray[i]<<" ";
