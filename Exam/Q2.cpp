@@ -53,7 +53,6 @@ int secondMinimum(struct node *root)
 
     if(temp->left->left == NULL)
     {
-        
         return temp->data;
     }
     return secondMinimum(temp->left);
@@ -104,16 +103,16 @@ struct node* deleteNode(struct node* root,int input)
             free(root);
             return temp;
         }
-    /*
-        struct node *current = root->left;
+    
+        struct node *current = root->right;
         while (current->left != NULL)
         {
             current = current->left;
         }
 
-        struct node *temp = current;
+        struct node *temp = root->right;
         root->data = temp->data;
-        root->right  = deleteNode(root->right,input); */
+        root->right  = deleteNode(root->right,input); 
     }
     
     return root;
@@ -144,7 +143,7 @@ int main()
     int secondMini = secondMinimum(ptr);
     cout<<"Second minimum no is : "<<secondMini<<endl;
 
-    struct node* a = deleteNode(ptr,13);
+    struct node* a = deleteNode(ptr,8);
 
     cout<<"After Deleting Node 13 Tree PriOrder : ";
     preorder(a);

@@ -1,5 +1,5 @@
-
-    // int a = CountTotalNumberNodes(root->left);
-    // int b = CountTotalNumberNodes(root->right);
-
-    // count = count + (a+b);
+if(temp->left->left == NULL)
+    {
+        return temp->data;
+    }
+    return secondMinimum(temp->left);
