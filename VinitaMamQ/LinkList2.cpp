@@ -1,65 +1,68 @@
-#include<iostream>
+#include <bits/stdc++.h>
 
 using namespace std;
 
-
-class Node{
+class Node
+{
     public:
     int data;
     Node *next;
 };
 
-Node *head=NULL;
+void addElement(Node **head,int data)
+{
+    Node *temp = new Node();
+    temp->data = data;
+    temp->next = *head;
+    *head = temp;
+}
 
-void insertAtEnd(int input){
-    Node *ptr =  new Node();
-    ptr->data = input;
-    ptr->next = NULL;
-
-    if(head == NULL)
+Node* intersection(Node *a, Node *b){
+    Node *temp = NULL;
+    while(a != NULL && b!= NULL)
     {
-        head = ptr;
+        if(a->data == b->data)
+        {
+            addElement(&temp,a->data);
+            temp=temp->next;
+            a = a->next;
+            b = b->next;
+        }else if(a-> data < b->data)
+            a = a->next;
+        else
+            b = b->next;
     }
-    else
-    {
-        Node *temp = head;
-        while(temp->next != NULL)
-        { 
-            temp = temp->next;
-        }
-        temp->next = ptr;
+    return temp;
+}
+
+void printList(Node* node)
+{
+    while (node != NULL) {
+        cout << node->data <<" ";
+        node = node->next;
     }
 }
 
-
-void display(){
-    
-    Node *temp = head;
-    while (temp!=NULL)
-    {
-        cout<<temp->data<<" ";
-        temp = temp->next;
-    }
-    cout<<endl;
-    cout<<"========================";
-    cout<<endl;
-    
-}
+int main()
+{
+    Node *list1 = NULL;
+    Node *list2 =NULL;
+    Node *abc =NULL;
 
 
-int main(){
-    insertAtEnd(17);
-    insertAtEnd(15);
-    insertAtEnd(8);
-    insertAtEnd(12);
-    insertAtEnd(10);
-    insertAtEnd(5);
-    insertAtEnd(4);
-    insertAtEnd(1);
-    insertAtEnd(7);
-    insertAtEnd(6);
-    display();
-    EvenAndOdd();
-    display();
-    return 0;
+    addElement(&list1,6);
+    addElement(&list1,5);
+    addElement(&list1,4);
+    addElement(&list1,3);
+    addElement(&list1,2);
+    addElement(&list1,1);
+
+
+    addElement(&list2,8);
+    addElement(&list2,6);
+    addElement(&list2,4);
+    addElement(&list2,2);
+
+    abc = intersection(list1, list2);
+    printList(abc);
 }
